@@ -28,7 +28,6 @@ app.get('/gifs', (req, res) => {
   // for data:
   axios({
     method: 'GET',
-    // url: `https://api.giphy.com/v1/gifs/trending?api_key=${giphy_api_key}`
     url: `http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${giphy_api_key}&limit=${limit}`
   }).then((response) => {
     res.send(response.data);
