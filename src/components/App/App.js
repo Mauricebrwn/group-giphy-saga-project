@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import GifItem from '../GifItem/GifItem';
 
 function App(props) {
   const [theGifs, setTheGifs] = useState([]);
@@ -27,8 +28,9 @@ function App(props) {
       <h1>Giphy Search!</h1>
       <h4><i>APIS</i></h4>
         {theGifs.map((gif) => {
-          return <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title}/>
-        })}
+          return <GifItem key={gif.id} gif={gif} />
+          // return <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title}/> 
+         })}
     </div>
   );
 }
