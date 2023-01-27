@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
+
 import { useEffect, useState } from 'react';
+
+
 
 const GifItem = ({ gif }) => {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -31,6 +34,7 @@ const GifItem = ({ gif }) => {
 
   return (
     <div>
+
       {/* {theGifs.map((gif) => {
         return ( */}
           <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} />
@@ -39,6 +43,7 @@ const GifItem = ({ gif }) => {
       <button onClick={handleFavorite}>
         {isFavorited ? "Remove from Favorites" : "Add to Favorites"}Favorite
       </button>{" "}
+
     </div>
   );
 };
