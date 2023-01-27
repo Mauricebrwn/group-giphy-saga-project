@@ -17,12 +17,16 @@ const GifItem = ({ gif }) => {
     fetchGifs();
   }, []);
 
-  const handleFavorite = () => {
+  const handleFavorite = (data) => {
     setIsFavorited(!isFavorited);
-    // Dispatch an action to add/remove the gif from the favorites list
+    console.log(data.url);
+    let newFavorite = {
+      url : data.url
+    }
+    //  Dispatch an action to add/remove the gif from the favorites list
     dispatch({
       type: "SAGA/ADD_FAVORITES",
-      payload: gif
+      payload: newFavorite
     });
   };
 
@@ -40,7 +44,7 @@ const GifItem = ({ gif }) => {
           <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} />
         {/* );
       })} */}
-      <button onClick={handleFavorite}>
+      <button onClick={() => handleFavorite(gif)}>
         {isFavorited ? "Remove from Favorites" : "Add to Favorites"}Favorite
       </button>{" "}
 

@@ -2,14 +2,23 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import GifItem from '../GifItem/GifItem';
-
+import { useDispatch} from 'react-redux';
 function App(props) {
   const [theGifs, setTheGifs] = useState([]);
 
   useEffect(() => {
     // 
     fetchGifs();
+    // getFavoriteList()
   }, []);
+
+  const dispatch = useDispatch()
+
+  const getFavoriteList = () => {
+    dispatch({
+        type: 'SAGA/FETCH_FAVORITES'
+    })
+}
 
   const fetchGifs = () => {
     axios({
@@ -22,6 +31,8 @@ function App(props) {
       console.log('fetchGifs fail:', error);
     })
   }
+
+  
 
   return (
     <div>
