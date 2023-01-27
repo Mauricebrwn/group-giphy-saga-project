@@ -38,13 +38,32 @@ router.post('/', (req, res) => {
 
 // update given favorite with a category id
 router.put('/:favId', (req, res) => {
+  const updatedFavorite = req.body;
+  const queryText = `UPDATE favorites
+  SET "name" = $1
+  WHERE id=$2;`;
+
+  const queryValues = [
+    updatedFavorite.name,
+  ];
+  pool.query(queryText,queryValues)
+  .then(() => {res.sendStatus(200);})
+  .catch((err) => {
+    console.log('Error completing SELECT favorite query', err);
+    res.sendStatus(500);
+  });
   // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
 });
 
 // delete a favorite
-router.delete('/', (req, res) => {
-  res.sendStatus(200);
+router.delete('/:id', (req, res) => {
+  const queryText = 'DELETE FROM favorites WHERE id=$1';
+  pool.query(queryText, [req.params.id])
+  .then(() => { res.sendStatus(200); })
+  .catch((err) => {
+    console.log('Error in DELETE favorite query', err);
+    res.sendStatus(500);
+  });
 });
 
 module.exports = router;
