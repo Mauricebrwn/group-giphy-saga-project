@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files
 app.use(express.static('build'));
-
+//post
 app.get('/gifs', (req, res) => {
   // Here is where we will ask the Giphy API
   // for data:

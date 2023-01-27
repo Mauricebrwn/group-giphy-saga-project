@@ -75,6 +75,22 @@ function* updateCategory (action){
   }
 }
 
+function* searchGif (action){
+  
+  try{
+    const search = action.payload
+
+    const response = yield axios({
+      method: 'POST',
+      url: `/api/favorite/${category}`,
+    })
+    yield put ({
+      type: 'SAGA/FETCH_CATEGORY'
+    }) 
+  }catch (error){
+      console.log('deletePlant error:', error)
+  }
+}
 
 
 

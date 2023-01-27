@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import GifItem from '../GifItem/GifItem';
 import { useDispatch} from 'react-redux';
+import GifForm from '../GifForm/GifForm';
 function App(props) {
   const [theGifs, setTheGifs] = useState([]);
 
@@ -38,6 +39,7 @@ function App(props) {
     <div>
       <h1>Giphy Search!</h1>
       <h4><i>APIS</i></h4>
+      <GifForm />
         {theGifs.map((gif) => {
           return <GifItem key={gif.id} gif={gif} />
           // return <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title}/> 
