@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-
+require('dotenv').config()
 const app = express();
 // This fishes the GIPHY_API_KEY's value out of our
 // .env file:
@@ -10,7 +10,7 @@ const search = 'vikings';
 const limit = '50';
 // App PORT set with production check
 const PORT = process.env.PORT || 5000;
-require('dotenv').config()
+
 
 // Route includes
 const favoriteRouter = require('./routes/favorite.router');
