@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
 
+import { useEffect, useState } from 'react';
+
+
+
 const GifItem = ({ gif }) => {
   const [isFavorited, setIsFavorited] = useState(false);
   const [theGifs, setTheGifs] = useState("");
@@ -17,7 +21,7 @@ const GifItem = ({ gif }) => {
     setIsFavorited(!isFavorited);
     // Dispatch an action to add/remove the gif from the favorites list
     dispatch({
-      type: "SAGA/TOGGLE_FAVORITE",
+      type: "SAGA/ADD_FAVORITES",
       payload: gif
     });
   };
@@ -30,15 +34,16 @@ const GifItem = ({ gif }) => {
 
   return (
     <div>
-      {theGifs.map((gif) => {
-        return (
+
+      {/* {theGifs.map((gif) => {
+        return ( */}
           <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} />
-        );
-      })}
+        {/* );
+      })} */}
       <button onClick={handleFavorite}>
         {isFavorited ? "Remove from Favorites" : "Add to Favorites"}Favorite
       </button>{" "}
-      */
+
     </div>
   );
 };
