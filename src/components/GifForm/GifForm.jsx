@@ -17,7 +17,7 @@ import React from 'react'
     <div>
     <img src={gif.url} alt={gif.title} />
     <button onClick={handleFavorite}>
-      {isFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
+      {isFavorited ? 'Remove from Favorites' : 'Add to Favorites'}Favorite
     </button>
   </div>
   )
