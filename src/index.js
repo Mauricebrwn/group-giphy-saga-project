@@ -36,24 +36,25 @@ function* fetchFavorites() {
           payload: favoriteDB
       })
   } catch (error) {
-      console.log('fetchPlants error:', error)
+      console.log('fetchFavorites error:', error)
   }
 }
 
 function* addToFavorites(action){
+  console.log(action.payload);
   try{
-    const addFavorite = action.payload
+    const newFavorite = action.payload
 
     const response = yield axios({
       method: 'POST',
       url: '/api/favorite',
-      data: addFavorite
+      data: newFavorite
     })
     yield put ({
       type: 'SAGA/FETCH_FAVORITES'
     }) 
   }catch (error){
-      console.log('createPlant error:', error)
+      console.log('addToFavorites error:', error)
   }
 }
 
@@ -73,6 +74,7 @@ function* updateCategory (action){
       console.log('deletePlant error:', error)
   }
 }
+
 
 
 
