@@ -67,12 +67,14 @@ function* updateCategory (action){
       url: `/api/favorite/${category}`,
     })
     yield put ({
-      type: 'SAGA/FETCH_PLANTS'
+      type: 'SAGA/FETCH_CATEGORY'
     }) 
   }catch (error){
       console.log('deletePlant error:', error)
   }
 }
+
+
 
 
 
