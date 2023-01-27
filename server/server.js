@@ -6,8 +6,8 @@ const app = express();
 // This fishes the GIPHY_API_KEY's value out of our
 // .env file:
 const giphy_api_key = process.env.GIPHY_API_KEY;
-const search = 'vikings';
-const limit = '50';
+const search = 'one piece';
+const limit = '25';
 // App PORT set with production check
 const PORT = process.env.PORT || 5000;
 
